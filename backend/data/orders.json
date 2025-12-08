@@ -1,0 +1,84 @@
+[
+  {
+    "id": "order_1764948700271",
+    "userId": "user_123",
+    "items": [
+      {
+        "id": 1,
+        "name": "Smartphone Premium",
+        "price": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 100,
+    "status": "pending",
+    "chargeId": "f801a974-27de-47a4-8a88-ba72a1e87232",
+    "chargeStatus": "due",
+    "paymentUrl": "https://p.djamo.com/payment-link/?type=payment_confirmation&chargeId=f801a974-27de-47a4-8a88-ba72a1e87232",
+    "customerInfo": {},
+    "createdAt": "2025-12-05T15:31:40.271Z",
+    "updatedAt": "2025-12-05T15:31:40.271Z"
+  },
+  {
+    "id": "order_1764949310543",
+    "userId": "user_123",
+    "items": [
+      {
+        "id": 3,
+        "name": "Montre Connectée",
+        "price": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 100,
+    "status": "refunded",
+    "chargeId": "5d31bac4-5f0c-4dff-8111-3906968136f8",
+    "chargeStatus": "refunded",
+    "paymentUrl": "https://p.djamo.com/payment-link/?type=payment_confirmation&chargeId=5d31bac4-5f0c-4dff-8111-3906968136f8",
+    "customerInfo": {},
+    "createdAt": "2025-12-05T15:41:50.543Z",
+    "updatedAt": "2025-12-05T15:42:40.817Z",
+    "refundStatus": "succeeded",
+    "refundId": "5d31bac4-5f0c-4dff-8111-3906968136f8"
+  },
+  {
+    "id": "order_1764953577281",
+    "userId": "user_123",
+    "items": [
+      {
+        "id": 1,
+        "name": "Smartphone Premium",
+        "price": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 100,
+    "status": "paid",
+    "chargeId": "3ae21628-df3e-4a14-8cad-8b2b7e16b456",
+    "chargeStatus": "paid",
+    "paymentUrl": "https://p.djamo.com/payment-link/?type=payment_confirmation&chargeId=3ae21628-df3e-4a14-8cad-8b2b7e16b456",
+    "customerInfo": {},
+    "createdAt": "2025-12-05T16:52:57.281Z",
+    "updatedAt": "2025-12-05T16:55:08.815Z"
+  },
+  {
+    "id": "order_1764954054536",
+    "userId": "user_123",
+    "items": [
+      {
+        "id": 1,
+        "name": "Smartphone Premium",
+        "price": 100,
+        "quantity": 1
+      }
+    ],
+    "total": 100,
+    "status": "pending",
+    "chargeId": "9166b0f4-5ad7-47fd-a6b7-f97a6ea84321",
+    "chargeStatus": "due",
+    "paymentUrl": "https://p.djamo.com/payment-link/?type=payment_confirmation&chargeId=9166b0f4-5ad7-47fd-a6b7-f97a6ea84321",
+    "customerInfo": {},
+    "createdAt": "2025-12-05T17:00:54.536Z",
+    "updatedAt": "2025-12-05T17:00:54.536Z"
+  }
+]

@@ -1,0 +1,129 @@
+.checkout-page {
+  padding: 2rem 0;
+}
+
+.checkout-page h1 {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.checkout-summary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.order-items {
+  margin-bottom: 2rem;
+}
+
+.order-items h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.payment-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.payment-success,
+.payment-failed {
+  color: white;
+}
+
+.payment-success h2 {
+  color: #2ecc71;
+  margin-bottom: 1rem;
+}
+
+.payment-failed h2 {
+  color: #ff4757;
+  margin-bottom: 1rem;
+}
+
+.payment-pending h2 {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.qr-payment {
+  color: white;
+}
+
+.qr-payment p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.qr-code-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 2rem 0;
+}
+
+.status {
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+.mobile-payment {
+  color: white;
+}
+
+.mobile-payment p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.no-payment-method {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .checkout-summary,
+  .payment-container {
+    padding: 1.5rem;
+  }
+
+  .qr-code-container {
+    padding: 1rem;
+  }
+
+  .qr-code-container svg {
+    width: 250px;
+    height: 250px;
+  }
+}
+
