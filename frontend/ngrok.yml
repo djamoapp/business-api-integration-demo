@@ -1,10 +1,7 @@
 version: "2"
-authtoken: 35c0RUnJ7BBKAOIQhUL0gwbVj47_3LSMzqJ5YhZZ42YWwW5xk
+authtoken: YOUR_NGROK_AUTHTOKEN_HERE
 
 tunnels:
-  # On expose uniquement le frontend.
-  # Le backend reste en local et est joint via le proxy Vite (/api),
-  # ce qui permet d'avoir une seule URL ngrok pour front + back.
   frontend:
     addr: 5173
     proto: http
