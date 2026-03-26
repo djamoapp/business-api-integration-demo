@@ -1,4 +1,4 @@
-# Backend - Djamo E-commerce API
+# Backend - Djamo Test Shop API
 
 Express.js backend for Djamo Collection API integration.
 

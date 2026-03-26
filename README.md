@@ -1,4 +1,4 @@
-# 🛒 Djamo E-Commerce - Collection API Integration
+# 🛒 Djamo Test Shop - Collection API Integration
 
 Complete example project of an e-commerce site integrating Djamo Collection API for payments and refunds.
 

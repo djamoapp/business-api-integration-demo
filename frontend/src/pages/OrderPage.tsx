@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { orderApi, Order } from '../api';
 import './OrderPage.css';
 
-function OrderPage() {
+function OrderPage({ userId }: { userId: string }) {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -13,17 +13,17 @@ function OrderPage() {
   const loadOrders = async () => {
     try {
       setLoading(true);
-      const data = await orderApi.getByUserId('user_123');
-      // Validation : s'assurer que la réponse est bien un tableau
+      const data = await orderApi.getByUserId(userId);
       if (Array.isArray(data)) {
-        setOrders(data);
+        const sortedOrders = data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime() );
+        setOrders(sortedOrders);
       } else {
         console.error('Format inattendu pour les commandes:', data);
         setOrders([]);
       }
     } catch (error: any) {
       console.error('Error loading orders:', error);
-      // Afficher plus de détails sur l'erreur
+
       if (error.response) {
         console.error('Response status:', error.response.status);
         console.error('Response data:', error.response.data);

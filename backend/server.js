@@ -41,7 +41,7 @@ app.use('/api/webhook', webhookRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Djamo E-commerce API is running' });
+  res.json({ status: 'ok', message: 'Djamo Test Shop API is running' });
 });
 
 // Error handler

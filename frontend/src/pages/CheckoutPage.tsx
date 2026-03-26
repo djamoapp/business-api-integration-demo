@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { orderApi, paymentApi, CartItem, Order } from '../api';
 import './CheckoutPage.css';
 
-function CheckoutPage() {
+function CheckoutPage({ userId }: { userId: string }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ function CheckoutPage() {
 
     try {
       setLoading(true);
-      const newOrder = await orderApi.create(cart, 'user_123');
+      const newOrder = await orderApi.create(cart, userId);
       localStorage.removeItem('cart');
       setCart([]);
       
@@ -97,11 +97,12 @@ function CheckoutPage() {
             </div>
           </div>
           <button
-            className="btn btn-primary btn-large"
+            className="btn btn-djamo"
             onClick={createOrder}
             disabled={loading}
           >
-            {loading ? 'Création de la commande...' : 'Créer la commande et payer'}
+            {!loading && <img src="/djamo-d-white-text.svg" alt="Djamo" className="btn-djamo-logo" />}
+            {loading ? 'Création de la commande...' : 'Payer avec Djamo'}
           </button>
         </div>
       </div>

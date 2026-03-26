@@ -7,6 +7,7 @@ function ProductPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [addedProductId, setAddedProductId] = useState<number | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -77,6 +78,8 @@ function ProductPage() {
     
     localStorage.setItem('cart', JSON.stringify(currentCart));
     setCart(currentCart);
+    setAddedProductId(product.id);
+    setTimeout(()=> setAddedProductId(null), 1000);
   };
 
   const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -101,7 +104,7 @@ function ProductPage() {
         >
           Tous
         </button>
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat}
             className={selectedCategory === cat ? 'active' : ''}
@@ -113,7 +116,7 @@ function ProductPage() {
       </div>
 
       <div className="products-grid">
-        {products.map(product => (
+        {products.map((product) => (
           <div key={product.id} className="product-card">
             <img src={product.image} alt={product.name} />
             <div className="product-info">
@@ -123,11 +126,11 @@ function ProductPage() {
               <div className="product-footer">
                 <span className="price">{product.price.toFixed(2)} FCFA</span>
                 <button
-                  className="btn btn-primary"
+                  className={`btn btn-primary ${addedProductId === product.id} ? 'btn-added' : ''`}
                   onClick={() => addToCart(product)}
                   disabled={product.stock === 0}
                 >
-                  {product.stock > 0 ? 'Ajouter au panier' : 'Rupture de stock'}
+                  {addedProductId === product.id ? '✓ Ajouté !' : 'Ajouter au panier'}
                 </button>
               </div>
             </div>

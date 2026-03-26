@@ -59,7 +59,6 @@ class DjamoService {
    */
   async createRefund(chargeId, refundData) {
     try {
-      // Note: This endpoint might need to be verified with Djamo documentation
       const response = await apiClient.post(`/v1/charges/${chargeId}/refund`, refundData);
       return response.data;
     } catch (error) {

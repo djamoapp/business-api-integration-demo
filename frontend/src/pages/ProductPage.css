@@ -141,5 +141,11 @@
     gap: 1rem;
     align-items: flex-start;
   }
+
+    .btn-added {
+        background-color: #2ecc71;
+        transform: scale(1.05);
+        transition: background-color 0.2s, transform 0.2s;
+    }
 }
 

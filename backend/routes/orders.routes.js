@@ -124,8 +124,7 @@ router.post('/:id/refund', async (req, res) => {
     }
 
     const refundData = {
-      amount: Math.round(order.total * 100), // Convert to cents
-      reason: req.body.reason || 'Customer request'
+      amount: Math.round(order.total),
     };
 
     const refund = await djamoService.createRefund(order.chargeId, refundData);
