@@ -7,7 +7,7 @@ export default defineConfig({
     // Écoute sur toutes les interfaces pour que ngrok puisse y accéder
     host: true,
     // IMPORTANT : uniquement le nom de domaine, sans http(s) ni slash final
-    allowedHosts: ['sillily-tussive-jovani.ngrok-free.dev', 'business-api-demo.onrender.com'],
+    allowedHosts: ['sillily-tussive-jovani.ngrok-free.dev', 'onrender.com'],
     port: 5173,
     // Toutes les requêtes vers /api sont proxifiées vers le backend local.
     // Depuis l’extérieur (ngrok), front et back partagent donc la même URL.
