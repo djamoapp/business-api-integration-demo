@@ -61,7 +61,7 @@ function CartPage() {
               <img src={item.product.image} alt={item.product.name} />
               <div className="item-info">
                 <h3>{item.product.name}</h3>
-                <p className="price">{item.product.price.toFixed(2)} FCFA</p>
+                <p className="price">{item.product.price} FCFA</p>
               </div>
               <div className="quantity-controls">
                 <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>
@@ -78,7 +78,7 @@ function CartPage() {
                 </button>
               </div>
               <div className="item-total">
-                {(item.product.price * item.quantity).toFixed(2)} FCFA
+                {(item.product.price * item.quantity)} FCFA
               </div>
               <button className="remove-btn" onClick={() => removeItem(item.product.id)}>
                 ×
@@ -89,7 +89,7 @@ function CartPage() {
         <div className="cart-summary">
           <div className="total">
             <span>Total:</span>
-            <span className="total-amount">{total.toFixed(2)} FCFA</span>
+            <span className="total-amount">{total} FCFA</span>
           </div>
           <button
             className="btn btn-primary btn-large"

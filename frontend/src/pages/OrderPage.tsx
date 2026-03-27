@@ -124,7 +124,7 @@ function OrderPage({ userId }: { userId: string }) {
               {order.items.map((item: any, index: number) => (
                 <div key={index} className="order-item">
                   <span>{item.name || item.product?.name} x{item.quantity}</span>
-                  <span>{(item.price * item.quantity).toFixed(2)} FCFA</span>
+                  <span>{(item.price * item.quantity)} FCFA</span>
                 </div>
               ))}
             </div>

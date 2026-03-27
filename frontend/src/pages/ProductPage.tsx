@@ -124,7 +124,7 @@ function ProductPage() {
               <p className="category">{product.category}</p>
               <p className="description">{product.description}</p>
               <div className="product-footer">
-                <span className="price">{product.price.toFixed(2)} FCFA</span>
+                <span className="price">{product.price} FCFA</span>
                 <button
                   className={`btn btn-primary ${addedProductId === product.id} ? 'btn-added' : ''`}
                   onClick={() => addToCart(product)}

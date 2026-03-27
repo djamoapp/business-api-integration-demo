@@ -88,12 +88,12 @@ function CheckoutPage({ userId }: { userId: string }) {
             {cart.map(item => (
               <div key={item.product.id} className="order-item">
                 <span>{item.product.name} x{item.quantity}</span>
-                <span>{(item.product.price * item.quantity).toFixed(2)} FCFA</span>
+                <span>{(item.product.price * item.quantity)} FCFA</span>
               </div>
             ))}
             <div className="order-total">
               <span>Total:</span>
-              <span>{total.toFixed(2)} FCFA</span>
+              <span>{total} FCFA</span>
             </div>
           </div>
           <button
