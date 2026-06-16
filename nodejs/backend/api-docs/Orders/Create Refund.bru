@@ -1,0 +1,17 @@
+meta {
+  name: Create Refund
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/api/orders/{{orderId}}/refund
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "reason": "Demande client"
+  }
+}

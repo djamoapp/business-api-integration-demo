@@ -1,0 +1,25 @@
+meta {
+  name: Simulate Webhook (paid)
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/webhook
+  body: json
+  auth: none
+}
+
+headers {
+  x-djamo-signature:
+}
+
+body:json {
+  {
+    "topic": "charge/events",
+    "data": {
+      "id": "{{chargeId}}",
+      "status": "paid"
+    }
+  }
+}

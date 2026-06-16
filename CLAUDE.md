@@ -4,18 +4,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Full-stack e-commerce demo integrating the **Djamo Collection API** for payments and refunds. Backend is Node.js/Express (ES Modules), frontend is React 18 + Vite + TypeScript.
+This repository holds two independent integration examples for the **Djamo Business API**, one per top-level folder:
 
-## Development Commands
+- **`/nodejs`** — full-stack e-commerce demo: Node.js/Express (ES Modules) backend + React 18 + Vite + TypeScript frontend. The reference implementation, documented below.
+- **`/php`** — a minimal, dependency-free PHP example covering the same three flows (create payment, listen to webhooks, send transfers). See `/php/README.md`.
 
-### Backend (`/backend`)
+The two projects are unrelated at runtime; pick the one matching the stack you're working in.
+
+## nodejs — Development Commands
+
+### Backend (`/nodejs/backend`)
 ```bash
 npm run dev    # Start with file watching (port 3001)
 npm start      # Production start
 npm run build  # TypeScript compile
 ```
 
-### Frontend (`/frontend`)
+### Frontend (`/nodejs/frontend`)
 ```bash
 npm run dev     # Vite dev server (port 5173)
 npm run build   # TypeScript check + production build
@@ -25,15 +30,15 @@ npm run preview # Preview production build
 ### Running the full stack
 ```bash
 # Terminal 1
-cd backend && npm run dev
+cd nodejs/backend && npm run dev
 
 # Terminal 2
-cd frontend && npm run dev
+cd nodejs/frontend && npm run dev
 ```
 
 ## Environment Setup
 
-**`/backend/.env`** (required):
+**`/nodejs/backend/.env`** (required):
 ```
 DJAMO_ACCESS_TOKEN=...
 DJAMO_API_URL=https://apibusiness.civ.staging.djam.ooo
@@ -43,14 +48,14 @@ PORT=3001
 FRONTEND_URL=http://localhost:5173
 ```
 
-**`/frontend/.env`** (required):
+**`/nodejs/frontend/.env`** (required):
 ```
 VITE_API_URL=http://localhost:3001/api
 ```
 
-## Architecture
+## nodejs — Architecture
 
-### Backend (`/backend`)
+### Backend (`/nodejs/backend`)
 
 - **`server.js`** — Express entry point; mounts all routes under `/api`
 - **`routes/`** — 4 route modules: `products`, `orders`, `payment`, `webhook`
@@ -58,7 +63,7 @@ VITE_API_URL=http://localhost:3001/api
 - **`utils/fileStorage.js`** — JSON file read/write helpers used as a mock database
 - **`data/`** — `products.json` (catalog) and `orders.json` (order storage)
 
-### Frontend (`/frontend/src`)
+### Frontend (`/nodejs/frontend/src`)
 
 - **`App.tsx`** — React Router setup with 4 routes: `/`, `/cart`, `/checkout`, `/orders`
 - **`api.ts`** — Axios client; all TypeScript interfaces for Product, Order, CartItem live here
@@ -81,10 +86,14 @@ VITE_API_URL=http://localhost:3001/api
 
 ### ngrok
 
-`/frontend/ngrok.yml` configures a tunnel on port 5173 to expose the frontend publicly for webhook testing. The Vite config (`vite.config.ts`) proxies `/api` → `http://localhost:3001`, so the backend is reachable through the same ngrok URL without being exposed directly.
+`/nodejs/frontend/ngrok.yml` configures a tunnel on port 5173 to expose the frontend publicly for webhook testing. The Vite config (`vite.config.ts`) proxies `/api` → `http://localhost:3001`, so the backend is reachable through the same ngrok URL without being exposed directly.
 
-Launch: `ngrok start --config frontend/ngrok.yml frontend`
+Launch: `ngrok start --config nodejs/frontend/ngrok.yml frontend`
 
 ### API docs (Bruno collection)
 
-`/backend/api-docs/` contains a Bruno collection covering all 11 endpoints. Open it with the Bruno desktop app, select the **Local** environment, and update the `orderId`/`chargeId` variables after creating a test order.
+`/nodejs/backend/api-docs/` contains a Bruno collection covering all 11 endpoints. Open it with the Bruno desktop app, select the **Local** environment, and update the `orderId`/`chargeId` variables after creating a test order.
+
+## php — PHP example
+
+A standalone, framework-free PHP implementation under `/php`. Run it with PHP's built-in server (`php -S localhost:8000 -t public` from `/php`). It mirrors the nodejs flows — create a charge, verify webhook HMAC signatures, send transfers — with its own `/php/README.md`. See that file for endpoints and curl examples.

@@ -1,0 +1,17 @@
+meta {
+  name: Update Order Status
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/api/orders/{{orderId}}/status
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": "paid"
+  }
+}
